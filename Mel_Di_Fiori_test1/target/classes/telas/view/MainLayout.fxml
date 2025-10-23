@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tela_main_controller.MainLayoutController"
+            stylesheets="@/globalStyle/style.css">
+
+
+    <children>
+        <HBox spacing="0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0">
+
+            <!-- MENU LATERAL -->
+            <VBox styleClass="area-padrao"
+                  prefWidth="162"
+                  VBox.vgrow="ALWAYS"
+                  spacing="12">
+
+
+			 <!-- Espaço para logo no topo -->
+			<HBox alignment="TOP_CENTER">
+			    <padding>
+        			<Insets top="5" right="0" bottom="5" left="0"/>
+    			</padding>
+
+			    <children>
+			        <ImageView fitHeight="150" fitWidth="130" preserveRatio="true" smooth="true">
+			            <image>
+			                <Image url="@/imagens/Logo02.png" />
+			            </image>
+			        </ImageView>
+			    </children>
+			</HBox>
+
+                <!-- Botões do menu -->
+                <Button text="Dashboard" styleClass="button" onAction="#abrirDashboard" maxWidth="Infinity">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-chart-bar" styleClass="font-Icon"/>
+                    </graphic>
+                </Button>
+
+                <Button text="Plantas" styleClass="button" onAction="#abrirListaColmeia" maxWidth="Infinity">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-cube" styleClass="font-Icon"/>
+                    </graphic>
+                </Button>
+
+                <Button text="Clientes" styleClass="button" onAction="#abrirListaClientes" maxWidth="Infinity">
+               <graphic>
+                <FontIcon iconLiteral="fas-users" styleClass="font-Icon"/>
+              </graphic>
+               </Button>
+
+
+                <!-- Espaço flexível para empurrar o botão Sair para a base -->
+				<Region VBox.vgrow="ALWAYS" />
+
+                <!-- Botão "Sair" com padding para ficar um pouco acima do rodapé -->
+                <VBox>
+                    <padding>
+                        <Insets top="0" right="0" bottom="20" left="0"/>
+                    </padding>
+                    <children>
+                        <Button text="Sair" styleClass="button" onAction="#sair" maxWidth="Infinity">
+                            <graphic>
+                                <FontIcon iconLiteral="fas-sign-out-alt" styleClass="font-Icon"/>
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+
+            </VBox>
+
+            <!-- ÁREA DE CONTEÚDO + CABEÇALHO (EXPANDINDO) -->
+            <VBox spacing="0"
+                  VBox.vgrow="ALWAYS"
+                  HBox.hgrow="ALWAYS"
+                  maxWidth="Infinity">
+
+
+                <!-- Cabeçalho que deve preencher toda largura -->
+				<HBox styleClass="cabecalho"
+			      spacing="10"
+			      alignment="CENTER_LEFT"
+			      prefHeight="60"
+			      HBox.hgrow="ALWAYS"
+			      maxWidth="Infinity">
+
+				<!-- Título fixo à esquerda -->
+				    <Label text="Sistema Floricultura" styleClass="titulo-principal" />
+
+
+				    <!-- Espaço flexível entre título e relógio -->
+				    <Region HBox.hgrow="ALWAYS" />
+
+				    <!-- Relógio e estação centralizados -->
+				    <VBox alignment="CENTER" spacing="2">
+				        <Label fx:id="labelRelogio" styleClass="relogio-label" text="00 March, 00:00" />
+				        <Label fx:id="labelEstacao" styleClass="estacao-label" text="Estação do ano" />
+				    </VBox>
+
+				    <!-- Espaço flexível para empurrar para direita -->
+				    <Region HBox.hgrow="ALWAYS" />
+
+
+
+					 <!-- Aqui, depois desse Region, você pode colocar seu nome de usuário, imagem e lupa -->
+				    <!-- Informações do usuário -->
+				    <HBox spacing="10" alignment="CENTER_RIGHT">
+				        <Label text="Felipe Iori" styleClass="nome-usuario" />
+				        <ImageView fitWidth="45" fitHeight="45" pickOnBounds="true" preserveRatio="true" styleClass="image-view">
+				            <image>
+				                <Image url="@/imagens/User01.png" />
+				            </image>
+				        </ImageView>
+				        <Button styleClass="botao-pesquisa">
+				            <graphic>
+				                <FontIcon iconLiteral="fas-search" styleClass="font-Icon" />
+				            </graphic>
+				        </Button>
+				    </HBox>
+				</HBox>
+
+
+
+
+                <!-- Painel dinâmico -->
+                <StackPane fx:id="painelConteudo"
+                           VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+        </HBox>
+    </children>
+
+</AnchorPane>

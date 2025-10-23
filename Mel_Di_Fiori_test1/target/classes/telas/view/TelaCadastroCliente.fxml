@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="crud_cliente.ClienteCreateController"
+            prefWidth="500" prefHeight="500"
+            style="-fx-background-color: #f5f5f5;">
+
+    <VBox spacing="15" alignment="TOP_LEFT" layoutX="20" layoutY="20" prefWidth="460"
+          style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-border-color: #dddddd; -fx-border-width: 1px; -fx-border-radius: 8px; -fx-background-radius: 8px;">
+
+        <Label text="Cadastro de Cliente" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+
+        <!-- Nome -->
+        <VBox spacing="5">
+            <Label text="Nome *" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+            <TextField fx:id="txtNome" promptText="Nome completo do cliente"
+                       style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+        </VBox>
+
+        <!-- Email -->
+        <VBox spacing="5">
+            <Label text="E-mail *" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+            <TextField fx:id="txtEmail" promptText="exemplo@email.com"
+                       style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+        </VBox>
+
+        <!-- Telefone -->
+        <VBox spacing="5">
+            <Label text="Telefone *" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+            <TextField fx:id="txtTelefone" promptText="(00) 00000-0000"
+                       style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+        </VBox>
+
+        <!-- Endereço -->
+        <VBox spacing="5">
+            <Label text="Endereço" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+            <TextField fx:id="txtEndereco" promptText="Rua, número, bairro"
+                       style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+        </VBox>
+
+        <!-- Cidade e Estado -->
+        <HBox spacing="15">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Cidade" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+                <TextField fx:id="txtCidade" promptText="Cidade"
+                           style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Estado" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+                <ComboBox fx:id="comboEstado" promptText="UF" prefWidth="80"
+                          style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+            </VBox>
+        </HBox>
+
+        <!-- Status -->
+        <VBox spacing="5">
+            <Label text="Status" style="-fx-text-fill: #555555; -fx-font-weight: bold;" />
+            <ComboBox fx:id="comboStatus" prefWidth="150"
+                      style="-fx-background-color: #f9f9f9; -fx-border-color: #cccccc; -fx-border-radius: 4px; -fx-background-radius: 4px;" />
+        </VBox>
+
+        <!-- Botões -->
+        <HBox spacing="15" style="-fx-padding: 10 0 0 0;">
+            <Button text="Salvar" onAction="#salvarCliente" 
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-padding: 8 16;" />
+            <Button text="Limpar" onAction="#limparCampos"
+                    style="-fx-background-color: #e0e0e0; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-padding: 8 16;" />
+            <Button text="Voltar" onAction="#voltarParaLista"
+                    style="-fx-background-color: #757575; -fx-text-fill: white; -fx-border-radius: 4px; -fx-background-radius: 4px; -fx-padding: 8 16;" />
+        </HBox>
+
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="crud_cliente.ClienteListController"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@/globalStyle/style.css">
+
+    <VBox spacing="15">
+        <padding>
+            <Insets top="15" right="15" bottom="15" left="15"/>
+        </padding>
+
+        <children>
+            <Label text="Gerenciamento de Clientes" 
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Novo Cliente" onAction="#abrirCadastro" 
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 8 16;" />
+                <Button text="Editar" onAction="#editarCliente" 
+                        style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 8 16;" />
+                <Button text="Excluir" onAction="#excluirCliente" 
+                        style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-padding: 8 16;" />
+                <Button text="Atualizar" onAction="#atualizarLista" 
+                        style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-padding: 8 16;" />
+            </HBox>
+
+            <TableView fx:id="tableClientes" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colNome" text="Nome" prefWidth="150"/>
+                    <TableColumn fx:id="colEmail" text="E-mail" prefWidth="200"/>
+                    <TableColumn fx:id="colTelefone" text="Telefone" prefWidth="120"/>
+                    <TableColumn fx:id="colCidade" text="Cidade" prefWidth="100"/>
+                    <TableColumn fx:id="colEstado" text="Estado" prefWidth="60"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="80"/>
+                    <TableColumn fx:id="colDataCadastro" text="Data Cadastro" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </children>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="crud_colmeia.ColmeiaListController"
+            prefWidth="1000"
+            prefHeight="700"
+            style="-fx-background-color: #e9e5e5;">
+
+    <VBox spacing="0" alignment="TOP_CENTER" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20" 
+          AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <!-- Cabeçalho -->
+        <VBox spacing="8" alignment="CENTER" style="-fx-background-color: #2E7D32; -fx-padding: 20; -fx-background-radius: 10 10 0 0;">
+            <Label text="Gerenciamento de Plantas" 
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 2, 0, 1, 1);" />
+            <Label text="Visualize e gerencie todas as plantas cadastradas" 
+                   style="-fx-font-size: 14px; -fx-text-fill: #e8f5e8; -fx-font-style: italic;" />
+        </VBox>
+
+        <!-- Conteúdo -->
+        <VBox spacing="20" alignment="TOP_LEFT" style="-fx-background-color: white; -fx-padding: 25; -fx-border-color: #dee2e6; -fx-border-width: 0 1px 1px 1px; -fx-border-radius: 0 0 10 10; -fx-background-radius: 0 0 10 10;">
+            
+            <!-- Barra de informações -->
+            <HBox spacing="20" alignment="CENTER_LEFT">
+                <VBox spacing="5">
+                    <Label text="Total de Plantas:" style="-fx-font-weight: bold; -fx-text-fill: #495057;" />
+                    <Label text="0" style="-fx-font-size: 18px; -fx-text-fill: #2E7D32; -fx-font-weight: bold;" 
+                           fx:id="lblTotalPlantas" />
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Plantas Ativas:" style="-fx-font-weight: bold; -fx-text-fill: #495057;" />
+                    <Label text="0" style="-fx-font-size: 18px; -fx-text-fill: #28a745; -fx-font-weight: bold;" 
+                           fx:id="lblPlantasAtivas" />
+                </VBox>
+            </HBox>
+
+            <!-- Tabela -->
+            <VBox spacing="10">
+                <Label text="Lista de Plantas Cadastradas" styleClass="crud-section-title" />
+                
+                <TableView fx:id="tableColmeias" prefHeight="400" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="70" />
+                        <TableColumn fx:id="colIdentificacao" text="Identificação" prefWidth="150" />
+                        <TableColumn fx:id="colLocalizacao" text="Localização" prefWidth="150" />
+                        <TableColumn fx:id="colTipo" text="Tipo" prefWidth="120" />
+                        <TableColumn fx:id="colStatus" text="Situação" prefWidth="100" />
+                        <TableColumn fx:id="colData" text="Data Instalação" prefWidth="130" />
+                        <TableColumn fx:id="colQuadros" text="Nº Plantas" prefWidth="100" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Botões de ação -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Nova Planta" onAction="#abrirCadastro" styleClass="crud-button" />
+                <Button text="Editar Planta" onAction="#editarColmeia" styleClass="crud-button-secondary" />
+                <Button text="Excluir Planta" onAction="#excluirColmeia" styleClass="crud-button-danger" />
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

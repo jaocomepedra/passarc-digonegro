@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="crud_colmeia.ColmeiaCreateController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #e9e5e5;">
+
+    <!-- Container principal -->
+    <VBox spacing="0" alignment="TOP_CENTER" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20" 
+          AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <!-- Cabeçalho -->
+        <VBox spacing="8" alignment="CENTER" style="-fx-background-color: #2E7D32; -fx-padding: 20; -fx-background-radius: 10 10 0 0;">
+            <Label text="Cadastro de Plantas" 
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white; -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 2, 0, 1, 1);" />
+            <Label text="Cadastre novas plantas no sistema Mel Di Fiori" 
+                   style="-fx-font-size: 14px; -fx-text-fill: #e8f5e8; -fx-font-style: italic;" />
+        </VBox>
+
+        <!-- Formulário -->
+        <VBox spacing="20" alignment="TOP_LEFT" style="-fx-background-color: white; -fx-padding: 25; -fx-border-color: #dee2e6; -fx-border-width: 0 1px 1px 1px; -fx-border-radius: 0 0 10 10; -fx-background-radius: 0 0 10 10;">
+            
+            <!-- Grid do formulário -->
+            <GridPane hgap="20" vgap="15" prefWidth="750">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="350" />
+                    <ColumnConstraints prefWidth="350" />
+                </columnConstraints>
+                
+                <rowConstraints>
+                    <RowConstraints prefHeight="65" />
+                    <RowConstraints prefHeight="65" />
+                    <RowConstraints prefHeight="65" />
+                    <RowConstraints prefHeight="65" />
+                    <RowConstraints prefHeight="120" />
+                </rowConstraints>
+
+                <!-- Linha 1: Identificação -->
+                <VBox spacing="5" GridPane.columnSpan="2">
+                    <Label text="Identificação *" styleClass="form-label" />
+                    <TextField fx:id="txtNumero" promptText="Ex: Planta A1, Canteiro B2..." prefHeight="40" 
+                               styleClass="form-field" />
+                </VBox>
+
+                <!-- Linha 2: Data e Localização -->
+                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="Data de Instalação *" styleClass="form-label" />
+                    <DatePicker fx:id="dateInstalacao" prefHeight="40" styleClass="form-field" />
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label text="Localização *" styleClass="form-label" />
+                    <TextField fx:id="txtLocalizacao" prefHeight="40" promptText="Ex: Jardim frontal, Estufa A..."
+                               styleClass="form-field" />
+                </VBox>
+
+                <!-- Linha 3: Tipo e Situação -->
+                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <Label text="Tipo da Planta *" styleClass="form-label" />
+                    <ComboBox fx:id="comboTipo" promptText="Selecione o tipo" prefHeight="40" styleClass="form-field" />
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <Label text="Situação *" styleClass="form-label" />
+                    <ComboBox fx:id="comboSituacao" promptText="Selecione uma opção" prefHeight="40" styleClass="form-field" />
+                </VBox>
+
+                <!-- Linha 4: Número de Plantas -->
+                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <Label text="Número de Plantas" styleClass="form-label" />
+                    <Spinner fx:id="spinnerNumeroQuadros" prefWidth="150" prefHeight="40" styleClass="form-field" />
+                </VBox>
+
+                <!-- Espaço vazio para alinhamento -->
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <!-- Linha 5: Observações -->
+                <VBox spacing="5" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                    <Label text="Observações" styleClass="form-label" />
+                    <TextArea fx:id="txtObservacoes" prefRowCount="4" 
+                              promptText="Digite observações, cuidados especiais, características da planta..."
+                              styleClass="form-field" />
+                </VBox>
+            </GridPane>
+
+            <!-- Legenda e botões -->
+            <VBox spacing="15" alignment="CENTER">
+                <!-- Legenda -->
+                <Label text="* Campos obrigatórios" style="-fx-font-size: 12px; -fx-text-fill: #6c757d; -fx-font-style: italic;" />
+                
+                <!-- Botões -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="Voltar" onAction="#voltar" styleClass="crud-button-secondary" />
+                    <Button text="Limpar Campos" onAction="#limparCampos" styleClass="crud-button-warning" />
+                    <Button text="Salvar Planta" onAction="#salvarColmeia" styleClass="crud-button" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </VBox>
+</AnchorPane>
